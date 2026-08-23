@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Dev Profile Generator
 
-## Getting Started
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
+![Build in Public](https://img.shields.io/badge/Build%20in-Public-000000?style=flat-square&logo=x)
 
-First, run the development server:
+An open-source, visual README generator for developers. Build a stunning GitHub profile in minutes with a real-time preview!
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌟 About The Project
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Developers often struggle to create visually appealing GitHub profiles because writing markdown manually can be tedious. The **Dev Profile Generator** solves this by providing a clean, split-screen UI:
+- **Left Side:** A simple form to input your data (Bio, Tech Stack, Socials).
+- **Right Side:** A live rendered markdown preview.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Once you are happy with the result, just click "Copy Markdown" and paste it into your GitHub profile!
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
+- **Framework:** [Next.js](https://nextjs.org/) (React)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Language:** TypeScript
 
-## Learn More
+## 🤝 How to Contribute (Beginner Friendly!)
 
-To learn more about Next.js, take a look at the following resources:
+We **love** beginners! If you have never made a Pull Request before, this is the perfect repository to start.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Check out our [CONTRIBUTING.md](CONTRIBUTING.md) file for a step-by-step guide on how to run the project locally and submit your first PR. 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Look for issues labeled `good first issue` or `help wanted`. Some examples of easy tasks you can do:
+- Add a new technology icon to the tech stack list.
+- Add a new social media input field.
+- Improve the color palette.
+- Fix typos or improve this documentation.
 
-## Deploy on Vercel
+## 💻 Running Locally
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/diogobessaft1/dev-profile-generator.git
+   ```
+2. Navigate to the project folder:
+   ```bash
+   cd dev-profile-generator
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+Distributed under the MIT License. See `LICENSE` for more information.
