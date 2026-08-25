@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function Home() {
   const [name, setName] = useState("Alex Chen");
@@ -12,6 +14,9 @@ ${bio}
 
 ### 🛠️ Tech Stack
 <!-- Tech stack will go here -->
+
+---
+*Generated with [Dev Profile Generator](https://dev-profile-generator.vercel.app/)*
 `;
 
   return (
@@ -73,9 +78,12 @@ ${bio}
           </h2>
           
           <div className="bg-gray-950 border border-gray-800 rounded-lg p-6 flex-grow mb-6 overflow-auto">
-            {/* Simple Rendered View (Will be improved by contributors later) */}
-            <h1 className="text-3xl font-bold mb-4 border-b border-gray-800 pb-2">Hi 👋, I'm {name}</h1>
-            <p className="text-gray-300 whitespace-pre-wrap">{bio}</p>
+            {/* REAL Markdown Rendered View */}
+            <article className="prose prose-invert prose-blue max-w-none">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {generatedMarkdown}
+              </ReactMarkdown>
+            </article>
           </div>
 
           <div>
