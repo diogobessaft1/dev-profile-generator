@@ -5,6 +5,8 @@
 
 An open-source, visual README generator for developers. Build a stunning GitHub profile in minutes with a real-time preview!
 
+🟢 **Live Demo:** [https://dev-profile-generator.vercel.app/](https://dev-profile-generator.vercel.app/)
+
 ## 🌟 About The Project
 
 Developers often struggle to create visually appealing GitHub profiles because writing markdown manually can be tedious. The **Dev Profile Generator** solves this by providing a clean, split-screen UI:
