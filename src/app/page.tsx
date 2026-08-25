@@ -19,6 +19,18 @@ ${bio}
 *Generated with [Dev Profile Generator](https://dev-profile-generator.vercel.app/)*
 `;
 
+  const downloadMarkdown = () => {
+    const blob = new Blob([generatedMarkdown], { type: "text/markdown" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "README.md";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <main className="min-h-screen bg-gray-950 text-gray-100 p-8">
       <div className="max-w-7xl mx-auto flex flex-col items-center mb-10">
@@ -93,12 +105,21 @@ ${bio}
             </pre>
           </div>
 
-          <button 
-            onClick={() => navigator.clipboard.writeText(generatedMarkdown)}
-            className="mt-6 w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 rounded-lg transition-colors flex justify-center items-center gap-2"
-          >
-            📋 Copy Markdown
-          </button>
+          <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <button 
+              onClick={() => navigator.clipboard.writeText(generatedMarkdown)}
+              className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 rounded-lg transition-colors flex justify-center items-center gap-2"
+            >
+              📋 Copy Markdown
+            </button>
+
+            <button 
+              onClick={downloadMarkdown}
+              className="flex-1 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-white font-medium py-3 rounded-lg transition-colors flex justify-center items-center gap-2"
+            >
+              💾 Download .md
+            </button>
+          </div>
         </div>
 
       </div>
