@@ -1,69 +1,99 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
 
 export default function Home() {
+  const [name, setName] = useState("Alex Chen");
+  const [bio, setBio] = useState("Passionate software engineer focusing on building scalable web apps. Loves learning new tech.");
+
+  const generatedMarkdown = `# Hi 👋, I'm ${name}
+
+${bio}
+
+### 🛠️ Tech Stack
+<!-- Tech stack will go here -->
+`;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen bg-gray-950 text-gray-100 p-8">
+      <div className="max-w-7xl mx-auto flex flex-col items-center mb-10">
+        <h1 className="text-4xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+          Dev Profile Generator
+        </h1>
+        <p className="text-gray-400">Build your stunning developer profile in minutes.</p>
+      </div>
+
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        {/* Left Side: Form (Input) */}
+        <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 shadow-lg">
+          <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
+            📝 Profile Details
+          </h2>
+          
+          <div className="space-y-5">
+            <div>
+              <label className="block text-sm font-medium text-gray-400 mb-1">Full Name</label>
+              <input 
+                type="text" 
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full bg-gray-950 border border-gray-800 rounded-lg p-3 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                placeholder="e.g. Diogo Bessa"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-400 mb-1">Bio</label>
+              <textarea 
+                value={bio}
+                onChange={(e) => setBio(e.target.value)}
+                rows={4}
+                className="w-full bg-gray-950 border border-gray-800 rounded-lg p-3 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                placeholder="Write a short bio about yourself..."
+              />
+            </div>
+            
+            {/* The Open Source Bait (Good First Issues) */}
+            <div className="pt-6 border-t border-gray-800 mt-6">
+              <div className="bg-blue-900/20 border border-blue-800/30 rounded-lg p-4">
+                <p className="text-sm text-blue-200">
+                  <span className="font-bold">💡 Want to add social links or tech stack icons?</span> <br/>
+                  Check our <a href="https://github.com/diogobessaft1/dev-profile-generator/issues" target="_blank" rel="noreferrer" className="text-blue-400 font-semibold hover:underline">GitHub Issues</a> to contribute! This is a great project for your first Pull Request.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {/* Right Side: Live Preview (Output) */}
+        <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 shadow-lg flex flex-col">
+          <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
+            👀 Live Preview
+          </h2>
+          
+          <div className="bg-gray-950 border border-gray-800 rounded-lg p-6 flex-grow mb-6 overflow-auto">
+            {/* Simple Rendered View (Will be improved by contributors later) */}
+            <h1 className="text-3xl font-bold mb-4 border-b border-gray-800 pb-2">Hi 👋, I'm {name}</h1>
+            <p className="text-gray-300 whitespace-pre-wrap">{bio}</p>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-medium text-gray-400 mb-2">Raw Markdown</h3>
+            <pre className="bg-gray-950 border border-gray-800 rounded-lg p-4 text-xs text-gray-300 overflow-x-auto font-mono">
+              <code>{generatedMarkdown}</code>
+            </pre>
+          </div>
+
+          <button 
+            onClick={() => navigator.clipboard.writeText(generatedMarkdown)}
+            className="mt-6 w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 rounded-lg transition-colors flex justify-center items-center gap-2"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            📋 Copy Markdown
+          </button>
         </div>
-      </main>
-    </div>
+
+      </div>
+    </main>
   );
 }
